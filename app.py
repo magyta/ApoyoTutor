@@ -88,22 +88,34 @@ with col_der:
     )
 
 # Opción para descargar reporte
+# Supongamos que 'bajo_rendimiento' es tu DataFrame filtrado
+# 1. Definimos la lista de columnas que quieres conservar
+columnas_deseadas = [
+    'periodo', 
+    'nivel', 
+    'asignatura', 
+    'paralelo', 
+    'codigo_estudiante', 
+    'nombre_estudiante', 
+    'nota1'
+]
 
+# 2. Filtramos el DataFrame (asegúrate de que los nombres coincidan con tu Excel original)
+# Si tus columnas tienen nombres distintos, solo cámbialos en la lista de arriba.
+reporte_final = bajo_rendimiento[columnas_deseadas]
 
-# --- Lógica para exportar a Excel ---
-# Creamos un archivo virtual en la memoria (buffer)
+# 3. Lógica para exportar a Excel
 buffer = io.BytesIO()
 
 with pd.ExcelWriter(buffer, engine='openpyxl') as writer:
-    bajo_rendimiento.to_excel(writer, index=False, sheet_name='BajoRendimiento')
+    reporte_final.to_excel(writer, index=False, sheet_name='Reporte_Notas')
 
-# Preparamos el buffer para la descarga
 buffer.seek(0)
 
-# Botón de descarga en Streamlit
+# 4. Botón de descarga
 st.download_button(
-    label="📥 Descargar Lista en Excel",
+    label="📥 Descargar Reporte de Excel",
     data=buffer,
-    file_name=f'bajo_rendimiento_{materia_sel}_{paralelo_sel}.xlsx',
-    mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    file_name=f"reporte_{materia_sel}.xlsx",
+    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 )
