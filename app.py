@@ -10,7 +10,7 @@ Este es un archivo temporal.
 import streamlit as st
 import pandas as pd
 import plotly as px
-
+import io  # Necesario para manejar el archivo en memoria
 
 # Configuración de la página
 st.set_page_config(page_title="Información Académica", layout="wide")
@@ -88,10 +88,22 @@ with col_der:
     )
 
 # Opción para descargar reporte
-csv = bajo_rendimiento.to_csv(index=False).encode('utf-8')
+
+
+# --- Lógica para exportar a Excel ---
+# Creamos un archivo virtual en la memoria (buffer)
+buffer = io.BytesIO()
+
+with pd.ExcelWriter(buffer, engine='openpyxl') as writer:
+    bajo_rendimiento.to_excel(writer, index=False, sheet_name='BajoRendimiento')
+
+# Preparamos el buffer para la descarga
+buffer.seek(0)
+
+# Botón de descarga en Streamlit
 st.download_button(
-    label="Descargar Lista en CSV",
-    data=csv,
-    file_name=f'bajo_rendimiento_{materia_sel}_{paralelo_sel}.csv',
-    mime='text/csv',
+    label="📥 Descargar Lista en Excel",
+    data=buffer,
+    file_name=f'bajo_rendimiento_{materia_sel}_{paralelo_sel}.xlsx',
+    mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
 )
