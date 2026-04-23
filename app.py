@@ -22,7 +22,7 @@ def cargar_data():
     # En un escenario real, aquí cargarías tu CSV o base de datos
     # df = pd.read_csv("tus_datos.csv")
     #df = pd.read_excel('data/Consulta8.xlsx', sheet_name='Consulta8')
-    df = pd.read_excel('data/Consulta10.xlsx', sheet_name='Consulta10')
+    df = pd.read_excel('Consulta10.xlsx', sheet_name='Consulta10')
     return pd.DataFrame(df)
 
 df = cargar_data()
