@@ -102,6 +102,7 @@ columnas_deseadas = [
 
 # 2. Filtramos el DataFrame (asegúrate de que los nombres coincidan con tu Excel original)
 # Si tus columnas tienen nombres distintos, solo cámbialos en la lista de arriba.
+st.write("Columnas detectadas en el archivo:", bajo_rendimiento.columns.tolist())
 reporte_final = bajo_rendimiento[columnas_deseadas]
 
 # 3. Lógica para exportar a Excel
