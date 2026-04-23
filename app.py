@@ -91,13 +91,13 @@ with col_der:
 # Supongamos que 'bajo_rendimiento' es tu DataFrame filtrado
 # 1. Definimos la lista de columnas que quieres conservar
 columnas_deseadas = [
-    'periodo', 
-    'nivel', 
-    'asignatura', 
-    'paralelo', 
-    'codigo_estudiante', 
-    'nombre_estudiante', 
-    'nota1'
+    'Descripcion_Periodo', 
+    'Descripcion_Nivel', 
+    'Descripcion_Materia', 
+    'Paralelo', 
+    'Codigo_Estudiante', 
+    'strApellidos', 
+    'Nota1'
 ]
 
 # 2. Filtramos el DataFrame (asegúrate de que los nombres coincidan con tu Excel original)
