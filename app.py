@@ -10,7 +10,7 @@ Este es un archivo temporal.
 import streamlit as st
 import pandas as pd
 import plotly as px
-import pyodbc
+
 
 # Configuración de la página
 st.set_page_config(page_title="Información Académica", layout="wide")
