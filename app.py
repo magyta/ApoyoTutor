@@ -9,7 +9,7 @@ Este es un archivo temporal.
 
 import streamlit as st
 import pandas as pd
-import plotly as px
+import plotly.express as px
 import io  # Necesario para manejar el archivo en memoria
 
 # Configuración de la página
