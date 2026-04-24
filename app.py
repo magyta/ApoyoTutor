@@ -19,7 +19,7 @@ st.set_page_config(page_title="Tutoría Académica - Reporte Dinámico", layout=
 @st.cache_data
 def cargar_datos():
     # Asegúrate de que el nombre del archivo sea exacto
-    df = pd.read_excel("data/CCConsulta10.xlsx", engine='openpyxl')
+    df = pd.read_excel("Consulta10.xlsx", engine='openpyxl')
     
     # Limpieza de nombres de columnas (quita espacios extras)
     df.columns = df.columns.str.strip()
