@@ -10,6 +10,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
+import matplotlib.pyplot as plt
 import io
 
 st.set_page_config(page_title="Tutoría Académica - Reporte Dinámico", layout="wide")
@@ -274,15 +275,26 @@ else:
         critico_materia1
     with col_der:
         st.subheader("Distribución del Rendimiento Académico")
-        fig_hist = px.histogram(
-            df_temp, 
-            x="Nota1", 
-            color="Id_Periodo", 
-            marginal="rug", # Añade una pequeña densidad debajo
-            title="Frecuencia de Calificaciones por Periodo",
-            barmode="overlay" # Superpone los periodos para comparar
+       # Creamos la figura de Matplotlib
+        fig, ax = plt.subplots(figsize=(10, 6))
+
+        # Creamos el gráfico usando Seaborn
+        sns.histplot(
+            df['nota1'], 
+            kde=True,          # Añade la curva de densidad suavizada
+            color='#4a7ab5',   # Color similar al de tu imagen
+            bins=30,           # Ajusta el ancho de las barras
+            ax=ax
         )
-        st.plotly_chart(fig_hist, use_container_width=True)
+        
+        # Personalización estética para que coincida con la imagen
+        ax.set_title('Distribution of academic performance', fontsize=14)
+        ax.set_xlabel('Nota1', fontsize=12)
+        ax.set_ylabel('Count', fontsize=12)
+        sns.despine() # Quita los bordes superior y derecho para un look más limpio
+        
+        # Mostramos el gráfico en Streamlit
+        st.pyplot(fig)
     
     
      
