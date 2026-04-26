@@ -277,7 +277,7 @@ else:
         fig_hist = px.histogram(
             df_temp, 
             x="Nota1", 
-            color="Descripcion_Periodo", 
+            color="Id_Periodo", 
             marginal="rug", # Añade una pequeña densidad debajo
             title="Frecuencia de Calificaciones por Periodo",
             barmode="overlay" # Superpone los periodos para comparar
