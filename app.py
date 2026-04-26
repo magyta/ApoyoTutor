@@ -274,14 +274,16 @@ else:
         critico_materia1
     with col_der:
          st.subheader("Distribución del Rendimiento Académico")
-                    # distribución de notas
-        # 1. Crear el objeto figura y los ejes
-       
-        # 2. Generar el gráfico de Seaborn pasando el eje (ax)
-        ax.set_title("Distribución del Rendimiento Académico")
-
-        # 3. Mostrar la figura en la app de Streamlit
-         st.pyplot(fig)
+        
+        fig_hist = px.histogram(
+        df_temp, 
+        x="Nota1", 
+        color="Descripcion_Periodo", 
+        marginal="rug", # Añade una pequeña densidad debajo
+        title="Frecuencia de Calificaciones por Periodo",
+        barmode="overlay" # Superpone los periodos para comparar
+        )
+        st.plotly_chart(fig_hist, use_container_width=True)
     
     
      
