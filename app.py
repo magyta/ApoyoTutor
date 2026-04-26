@@ -11,6 +11,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import matplotlib.pyplot as plt
+import seaborn as sns
 import io
 
 st.set_page_config(page_title="Tutoría Académica - Reporte Dinámico", layout="wide")
