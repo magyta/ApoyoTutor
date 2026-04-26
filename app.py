@@ -281,7 +281,7 @@ else:
 
         # Creamos el gráfico usando Seaborn
         sns.histplot(
-            df['nota1'], 
+            df_temp['Nota1'], 
             kde=True,          # Añade la curva de densidad suavizada
             color='#4a7ab5',   # Color similar al de tu imagen
             bins=30,           # Ajusta el ancho de las barras
