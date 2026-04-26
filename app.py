@@ -276,7 +276,7 @@ else:
          st.subheader("Distribución del Rendimiento Académico")
                     # distribución de notas
         # 1. Crear el objeto figura y los ejes
-         fig, ax = plt.subplots()
+       
         # 2. Generar el gráfico de Seaborn pasando el eje (ax)
          sns.histplot(df_temp['Nota1'], kde=True, ax=ax) 
          ax.set_title("Distribución del Rendimiento Académico")
