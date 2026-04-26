@@ -273,16 +273,15 @@ else:
         st.subheader("Materias con mayor bajo rendimiento por periodo")  
         critico_materia1
     with col_der:
-         st.subheader("Distribución del Rendimiento Académico")
-        
-            fig_hist = px.histogram(
+        st.subheader("Distribución del Rendimiento Académico")
+        fig_hist = px.histogram(
             df_temp, 
             x="Nota1", 
             color="Descripcion_Periodo", 
             marginal="rug", # Añade una pequeña densidad debajo
             title="Frecuencia de Calificaciones por Periodo",
             barmode="overlay" # Superpone los periodos para comparar
-            )
+        )
         st.plotly_chart(fig_hist, use_container_width=True)
     
     
