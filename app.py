@@ -47,7 +47,7 @@ def generar_distribucion_notas(df1):
 @st.cache_data
 def cargar_datos():
     # Asegúrate de que el nombre del archivo sea exacto
-    df = pd.read_excel("data/Consulta1.xlsx", engine='openpyxl')
+    df = pd.read_excel("Consulta1.xlsx", engine='openpyxl')
     
     # Limpieza de nombres de columnas (quita espacios extras)
     df.columns = df.columns.str.strip()
